@@ -1,0 +1,21 @@
+@function font-face($path-map, $type, $extension) {
+    @if map-has-key($path-map, $type) {
+        @return url('#{$path}.#{$extension}');
+    }
+    @return null;
+}
+
+
+@mixin font-face($name, $path-map) {
+    @font-face {
+        font-family: '#{$name}';
+        src: font-face($path-map, eot, 'eot');
+        src: (
+            font-face($path-map, embedded-opentype, 'eot?#iefix') format('embedded-opentype'),
+            font-face($path-map, woff2, 'woff2') format('woff2'),
+            font-face($path-map, woff, 'woff') format('woff'),
+            font-face($path-map, ttf, 'ttf') format('truetype'),
+            font-face($path-map, svg, '#svgFontName') format('svg'),
+        );
+    }
+}

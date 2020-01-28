@@ -1,0 +1,39 @@
+$color-level-value: 10 !default;
+
+
+$color-base-black-value: black !default;
+$color-base-white-value: white !default;
+$color-base-gray-value: gray !default;
+
+
+$color-map: () !default;
+
+
+@function color($path-list, $map: $color-map) {
+    @return map-nested-get($map, $path-list);
+}
+
+
+@function color-fraction($level: 0, $shade-level: $color-level-value) {
+	@return unit-fraction($level / $shade-level);
+}
+
+
+@function color-mix($base, $color, $arguments...) {
+  @return mix($base, $color, color-fraction($arguments...));
+}
+
+
+@function color-tint($color, $level: 0, $base: $color-base-white-value) {
+	@return color-mix($base, $color, $level);
+}
+
+
+@function color-shade($color, $level: 0, $base: $color-base-black-value) {
+	@return color-mix($base, $color, $level);
+}
+
+
+@function color-tone($color, $level: 0, $base: $color-base-gray-value) {
+	@return color-mix($base, $color, $level);
+}

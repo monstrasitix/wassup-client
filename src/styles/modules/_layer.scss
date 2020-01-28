@@ -1,0 +1,11 @@
+$layer-map: () !default;
+
+
+@function layer($path-list, $map: $layer-map) {
+    @return map-nested-get($map, $path-list);
+}
+
+
+@mixin layer($path-list, $map: $layer-map) {
+    z-index: layer($path-list, $map);
+}

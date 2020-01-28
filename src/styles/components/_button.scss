@@ -1,0 +1,31 @@
+.button {
+    @include button-hook('button');
+
+    &--primary {
+        @include button-hook('button.primary');
+    }
+
+    &--secondary {
+        @include button-hook('button.secondary');
+    }
+
+    &--wide {
+        @include button-hook('button.wide');    
+    }
+
+    &--tiny {
+        @include button-hook('button.tiny');
+    }
+
+    &--small {
+        @include button-hook('button.small');
+    }
+
+    &--large {
+        @include button-hook('button.large');
+    }
+
+    &--massive {
+        @include button-hook('button.massive');
+    }
+}

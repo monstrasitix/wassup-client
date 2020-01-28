@@ -1,0 +1,21 @@
+$variant-default-value: null;
+$variant-global-value: $variant-default-value !global;
+
+
+@mixin set-variant($value) {
+	$variant-global-value: $value !global;
+}
+
+
+@mixin variant($name) {
+	@if $name == $variant-global-value {
+		@content;
+	}
+}
+
+
+@mixin variant-hook($name) {
+	@include set-variant($name);
+	@content;
+	@include set-variant($variant-default-value);
+}

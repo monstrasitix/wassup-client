@@ -1,0 +1,112 @@
+@mixin button {
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+
+    border-width: 2px;
+    border-style: solid;
+    padding: .75em 1.5em;
+    line-height: 1rem;
+    border-radius: .25rem;
+    font-family: inherit;
+
+    transition-duration: .1s;
+    transition-timing-function: linear;
+    transition-property: (
+        border-color,
+        background-color,
+    );
+}
+
+
+@mixin button-skin(
+    $color,
+    $background-color,
+) {
+    color: $color;
+    border-color: $background-color;
+    background-color: $background-color;
+
+    &:focus,
+    &:hover {
+        $temp: color-shade($background-color, 1);
+        border-color: $temp;
+        background-color: $temp;
+    }
+
+    &:active {
+        $temp: color-shade($background-color, 2);
+        border-color: $temp;
+        background-color: $temp;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+
+        color: color-tint($color, 3);
+
+        $temp: color-tint($background-color, 3);
+        border-color: $temp;
+        background-color: $temp;
+    }
+}
+
+
+@mixin button-size($size) {
+    font-size: $size;
+}
+
+@mixin button-wide {
+    width: 100%;
+    display: block;
+}
+
+
+@mixin button-hook($name) {
+    @include variant-hook($name) {
+        @include variant('button') {
+            @include button;
+            @include button-size(.9rem);
+            @include button-skin(
+                color-tint(color('base' 'black'), 1),
+                color-tint(color('base' 'gray'), 7),
+            );
+        }
+        
+        @include variant('button.primary') {
+            @include button-skin(
+                color('base' 'white'),
+                color('theme' 'primary'),
+            );
+        }
+        
+        @include variant('button.secondary') {
+            @include button-skin(
+                color('base' 'white'),
+                color('theme' 'secondary'),
+            );
+        }
+
+        @include variant('button.wide') {
+            @include button-wide;
+        }
+
+        @include variant('button.tiny') {
+            @include button-size(.5rem);
+        }
+
+        @include variant('button.small') {
+            @include button-size(.7rem);
+        }
+
+        @include variant('button.large') {
+            @include button-size(1.1rem);
+        }
+
+        @include variant('button.massive') {
+            @include button-size(1.3rem);
+        }
+    }
+}

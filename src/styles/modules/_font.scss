@@ -1,0 +1,45 @@
+$font-size-map: () !default;
+$font-family-map: () !default;
+$font-height-map: () !default;
+
+
+@function font-size($path, $map: $font-size-map) {
+	@return map-nested-get($map, $path);
+}
+
+
+@function font-family($path, $map: $font-family-map) {
+	@return map-nested-get($map, $path);
+}
+
+
+@function font-height($path, $map: $font-height-map) {
+	@return map-nested-get($map, $path);
+}
+
+
+@mixin font-size($path, $map: $font-size-map) {
+	font-size: font-size($path, $map);
+}
+
+
+@mixin font-family($path, $map: $font-family-map) {
+	font-family: font-family($path, $map);
+}
+
+
+@mixin font-height($path, $map: $font-height-map) {
+	line-height: font-height($path, $map);
+}
+
+
+@mixin font(
+	$path,
+	$size-map: $font-size-map,
+	$family-map: $font-family-map,
+	$height-map: $font-height-map,
+) {
+	@include font-size($path, $size-map);
+	@include font-family($path, $family-map);
+	@include font-height($path, $height-map);
+}

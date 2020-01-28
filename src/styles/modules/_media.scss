@@ -1,0 +1,13 @@
+$media-map: () !default;
+
+
+@function media($path-list, $map: $media-map) {
+    @return map-nested-get($map, $path-list);
+}
+
+
+@mixin media($path-list, $map: $media-map) {
+    @media #{media($path-list, $map)} {
+        @content;
+    }
+}

@@ -1,0 +1,6 @@
+@function map-nested-get($map, $path-list) {
+    @each $path in $path-list {
+        $map: map-get($map, $path);
+    }
+    @return $map;
+}

@@ -1,0 +1,12 @@
+$unit-radio-base: 100% !default;
+$unit-fraction-base: 100% !default;
+
+
+@function unit-ratio($width, $height, $base: $unit-ratio-base) {
+    @return $base * ($height / $width);
+}
+
+
+@function unit-fraction($fraction, $base: $unit-fraction-base) {
+    @return $base * $fraction;
+}
