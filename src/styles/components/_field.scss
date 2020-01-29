@@ -9,11 +9,15 @@
         @include field-hook('field.input');
     }
 
+    &-info {
+        @include field-hook('field.info');
+    }
+
     &-message {
         @include field-hook('field.message');
     }
 
-    @at-root &--success & {
+    @at-root &.success & {
         &-input {
             @include field-hook('field.success.input');
         }
@@ -23,7 +27,7 @@
         }
     }
 
-    @at-root &--warning & {
+    @at-root &.warning & {
         &-input {
             @include field-hook('field.warning.input');
         }
@@ -33,7 +37,7 @@
         }
     }
 
-    @at-root &--error & {
+    @at-root &.error & {
         &-input {
             @include field-hook('field.error.input');
         }

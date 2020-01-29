@@ -36,14 +36,36 @@
     margin: .5rem 0;
 }
 
+@mixin field-info {
+    display: block;
+    font-size: .75rem;
+    margin: .6rem 0;
+    color: color('base' 'gray')
+}
+
+@mixin field-input-skin($color) {
+    background-color: color-tint($color, 8);
+    color: $color;
+    
+    &:disabled {
+        cursor: not-allowed;
+        background-color: color-tint($color, 9);
+        color: color-tint($color, 1);
+    }
+}
+
+@mixin field-message-skin($color) {
+    color: $color;
+}
+
 
 @mixin field-skin($name, $color) {
     @include variant('field.#{$name}.input') {
-        background-color: color-tint($color, 9.5);
+        @include field-input-skin($color);
     }
     
     @include variant('field.#{$name}.message') {
-        color: $color;
+        @include field-message-skin($color);
     }
 }
 
@@ -60,10 +82,17 @@
 
         @include variant('field.input') {
            @include field-input;
+           @include field-input-skin(#333);
+           background-color: color('base' 'white');
         }
 
         @include variant('field.message') {
             @include field-message;
+            @include field-message-skin(#333);
+        }
+
+        @include variant('field.info') {
+            @include field-info;
         }
 
         @include field-skin('success', color('theme' 'primary'));
