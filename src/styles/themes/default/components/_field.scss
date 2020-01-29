@@ -20,7 +20,7 @@
             border-radius: .25rem;
             border-width: 1px;
             border-style: solid;
-            border-color: color-shade(color('base' 'white'), 1);
+            border-color: color-shade(color('base' 'white'), 2);
             width: 100%;
             max-width: 100%;
             min-width: 100%;
@@ -39,6 +39,7 @@
             display: block;
             font-size: .75rem;
             margin-top: .75rem;
+            margin-bottom: .75rem;
         }
 
         @include variant('field.success') {
@@ -46,7 +47,6 @@
                 color: green;
             }
             .field-input {
-                border-color: green;
                 background-color: color-tint(green, 9.5);
             }
         }
@@ -56,7 +56,6 @@
                 color: orange;
             }
             .field-input {
-                border-color: orange;
                 background-color: color-tint(orange, 9.5);
             }
         }
@@ -65,7 +64,6 @@
                 color: red;
             }
             .field-input {
-                border-color: red;
                 background-color: color-tint(red, 9.5);
             }
         }

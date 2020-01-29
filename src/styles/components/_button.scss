@@ -1,31 +1,47 @@
 .button {
     @include button-hook('button');
 
-    &--primary {
+    &.primary {
         @include button-hook('button.primary');
     }
 
-    &--secondary {
+    &.secondary {
         @include button-hook('button.secondary');
     }
 
-    &--wide {
-        @include button-hook('button.wide');    
+    &.hollow {
+        @include button-hook('button.hollow');
+
+        &-primary {
+            @include button-hook('button.hollow.primary');
+        }
+
+        &-secondary {
+            @include button-hook('button.hollow.secondary');
+        }
     }
 
-    &--tiny {
+    &.pill {
+        @include button-hook('button.pill');
+    }
+
+    &.wide {
+        @include button-hook('button.wide');
+    }
+
+    &.tiny {
         @include button-hook('button.tiny');
     }
 
-    &--small {
+    &.small {
         @include button-hook('button.small');
     }
 
-    &--large {
+    &.large {
         @include button-hook('button.large');
     }
 
-    &--massive {
+    &.massive {
         @include button-hook('button.massive');
     }
 }

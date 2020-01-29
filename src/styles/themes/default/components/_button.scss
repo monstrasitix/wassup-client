@@ -5,15 +5,15 @@
     vertical-align: middle;
     text-align: center;
 
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
-    padding: .75em 1.5em;
+    padding: .8em 1em;
     line-height: 1rem;
     border-radius: .25rem;
     font-family: inherit;
 
-    transition-duration: .1s;
-    transition-timing-function: linear;
+    transition-duration: .16s;
+    transition-timing-function: ease-in-out;
     transition-property: (
         border-color,
         background-color,
@@ -29,7 +29,7 @@
     border-color: $background-color;
     background-color: $background-color;
 
-    &:focus,
+    &[tab-index]:focus,
     &:hover {
         $temp: color-shade($background-color, 1);
         border-color: $temp;
@@ -64,11 +64,39 @@
 }
 
 
+@mixin button-hollow-skin(
+    $color,
+    $background-color,
+) {
+    color: $color;
+    border-color: $color;
+    background-color: $background-color;
+
+    &[tab-index]:focus,
+    &:hover {
+        color: $background-color;
+        background-color: color-shade($color, 1);
+    }
+
+    &:active {
+        color: $background-color;
+        background-color: color-shade($color, 2);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+
+        color: color-tint($color, 3);
+        background-color: color-tint($background-color, 2);
+    }
+}
+
+
 @mixin button-hook($name) {
     @include variant-hook($name) {
         @include variant('button') {
             @include button;
-            @include button-size(.9rem);
+            @include button-size(.8rem);
             @include button-skin(
                 color-tint(color('base' 'black'), 1),
                 color-tint(color('base' 'gray'), 7),
@@ -89,12 +117,38 @@
             );
         }
 
+        
+        @include variant('button.hollow') {
+            @include button-hollow-skin(
+                color-tint(color('base' 'gray'), 2),
+                color('base' 'white'),
+            );
+        }
+
+        @include variant('button.hollow.primary') {
+            @include button-hollow-skin(
+                color('theme' 'primary'),
+                color('base' 'white'),
+            );
+        }
+
+        @include variant('button.hollow.secondary') {
+            @include button-hollow-skin(
+                color('theme' 'secondary'),
+                color('base' 'white'),
+            );
+        }
+
+        @include variant('button.pill') {
+            border-radius: 30px;
+        }
+
         @include variant('button.wide') {
             @include button-wide;
         }
 
         @include variant('button.tiny') {
-            @include button-size(.5rem);
+            @include button-size(.6rem);
         }
 
         @include variant('button.small') {
