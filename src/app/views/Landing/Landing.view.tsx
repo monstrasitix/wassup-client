@@ -210,6 +210,23 @@ const Fields = () => (
 );
 
 
+const Images = () => (
+    <div>
+        <div className="flex">
+            <div><img src="./placeholder.png" alt="Placeholder" className="image"/></div>
+            <div><img src="./placeholder.png" alt="Placeholder" className="image rounded"/></div>
+            <div><img src="./placeholder.png" alt="Placeholder" className="image circle"/></div>
+        </div>
+
+        <div className="flex">
+            <div><img src="./placeholder.png" alt="Placeholder" className="image thumbnail"/></div>
+            <div><img src="./placeholder.png" alt="Placeholder" className="image thumbnail rounded"/></div>
+            <div><img src="./placeholder.png" alt="Placeholder" className="image thumbnail circle"/></div>
+        </div>
+    </div>
+);
+
+
 const Landing: React.FC<ILandingProps> = () => (
     <div className="a">
         <style children={`
@@ -235,6 +252,7 @@ const Landing: React.FC<ILandingProps> = () => (
 
        <Buttons />
        <Fields />
+       <Images />
     </div>
 );
 

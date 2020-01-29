@@ -17,6 +17,7 @@ module.exports = merge(common, {
         port: 8000,
         hot: true,
         inline: true,
-        contentBase: root('./dist'),
+        contentBase: root('./src/assets'),
+        // publicPath: root('./'),
     },
 });

@@ -21,6 +21,10 @@ module.exports = {
                 use: 'ts-loader',
             }),
             rule({
+                test: /\.(png|jpe?g|gif)$/,
+                use: 'file-loader',
+            }),
+            rule({
                 test: /\.scss?$/,
                 use: [
                     'style-loader',

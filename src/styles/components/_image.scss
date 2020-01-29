@@ -1,3 +1,18 @@
 .image {
     @include image-hook('image');
+
+    &.rounded {
+        border-radius: .25rem;
+    }
+
+    &.circle {
+        border-radius: 50%;
+    }
+
+    &.thumbnail {
+        box-shadow: (
+            0 0 0px 5px #fff,
+            0 0 2px 6px #eee,
+        );
+    }
 }
