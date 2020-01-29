@@ -1,71 +1,73 @@
+@mixin field {
+    font-size: .9rem;
+    margin: 1rem 0;
+}
+
+@mixin field-label {
+    margin: .5rem 0;
+    display: block;
+}
+
+@mixin field-input {
+    font-size: inherit;
+    font-family: inherit;
+    vertical-align: middle;
+    padding: .75rem;
+    border-radius: .25rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: color-shade(color('base''white'), 2);
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: block;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 1px 0 color-shade(color('theme''primary'),
+                1);
+    }
+}
+
+
+@mixin field-message {
+    display: block;
+    font-size: .75rem;
+    margin: .5rem 0;
+}
+
+
+@mixin field-skin($name, $color) {
+    @include variant('field.#{$name}.input') {
+        background-color: color-tint($color, 9.5);
+    }
+    
+    @include variant('field.#{$name}.message') {
+        color: $color;
+    }
+}
+
+
 @mixin field-hook($name) {
     @include variant-hook($name) {
         @include variant('field') {
-            font-size: .9rem;
-            & + & {
-                margin-top: 1rem;
-            }
+            @include field;
         }
-        
-        @include variant('field.label') {
-            margin-bottom: .75rem;
-            display: block;
-        }
-        
-        @include variant('field.input') {
-            font-size: inherit;
-            font-family: inherit;
-            vertical-align: middle;
-            padding: .75rem;
-            border-radius: .25rem;
-            border-width: 1px;
-            border-style: solid;
-            border-color: color-shade(color('base' 'white'), 2);
-            width: 100%;
-            max-width: 100%;
-            min-width: 100%;
-            display: block;
 
-            &:focus {
-                outline: none;
-                box-shadow: 0 0 1px 0 color-shade(
-                    color('theme' 'primary'),
-                    1
-                );
-            }
+        @include variant('field.label') {
+            @include field-label;
+        }
+
+        @include variant('field.input') {
+           @include field-input;
         }
 
         @include variant('field.message') {
-            display: block;
-            font-size: .75rem;
-            margin-top: .75rem;
-            margin-bottom: .75rem;
+            @include field-message;
         }
 
-        @include variant('field.success') {
-            .field-message {
-                color: green;
-            }
-            .field-input {
-                background-color: color-tint(green, 9.5);
-            }
-        }
-
-        @include variant('field.warning') {
-            .field-message {
-                color: orange;
-            }
-            .field-input {
-                background-color: color-tint(orange, 9.5);
-            }
-        }
-        @include variant('field.error') {
-            .field-message {
-                color: red;
-            }
-            .field-input {
-                background-color: color-tint(red, 9.5);
-            }
-        }
+        @include field-skin('success', color('theme' 'primary'));
+        @include field-skin('warning', orange);
+        @include field-skin('error', color('theme' 'secondary'));
     }
 }

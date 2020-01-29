@@ -13,13 +13,33 @@
         @include field-hook('field.message');
     }
 
-    &--success {
-        @include field-hook('field.success');
+    @at-root &--success & {
+        &-input {
+            @include field-hook('field.success.input');
+        }
+
+        &-message {
+            @include field-hook('field.success.message');
+        }
     }
-    &--warning {
-        @include field-hook('field.warning');
+
+    @at-root &--warning & {
+        &-input {
+            @include field-hook('field.warning.input');
+        }
+
+        &-message {
+            @include field-hook('field.warning.message');
+        }
     }
-    &--error {
-        @include field-hook('field.error');
+
+    @at-root &--error & {
+        &-input {
+            @include field-hook('field.error.input');
+        }
+
+        &-message {
+            @include field-hook('field.error.message');
+        }
     }
 }
