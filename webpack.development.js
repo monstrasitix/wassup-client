@@ -18,6 +18,5 @@ module.exports = merge(common, {
         hot: true,
         inline: true,
         contentBase: root('./src/assets'),
-        // publicPath: root('./'),
     },
 });
