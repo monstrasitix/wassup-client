@@ -1,0 +1,32 @@
+---
+name: InputField
+route: /
+---
+
+import '../../../styles/views/main.scss';
+import { Playground, Props } from 'docz'
+import { Formik } from 'formik'
+import { InputField } from './InputField.component'
+
+
+# InputField
+
+
+## Properties
+
+
+<Props of={InputField} />
+
+
+## Basic usage
+
+
+<Playground>
+    <Formik initialValues={{ field: 'Field' }}>
+        <InputField
+            name="field"
+            label="Label"
+            placeholder="Type something ..."
+        />
+    </Formik>
+</Playground>

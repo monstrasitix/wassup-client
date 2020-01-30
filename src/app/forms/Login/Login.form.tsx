@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, FormikBag, FormikHelpers } from 'formik';
 
 
 // Components
@@ -11,10 +11,10 @@ import InputField from '../../components/InputField/InputField.component';
 
 export interface ILoginFormProps
 {
-    useranme?: string;
+    username?: string;
     password?: string;
-    onSubmit?: Function;
-    onReset?: Function;
+    onSubmit?: any;
+    onReset?: any;
 };
 
 
