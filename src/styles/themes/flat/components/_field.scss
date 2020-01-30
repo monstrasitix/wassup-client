@@ -6,6 +6,7 @@
 @mixin field-label {
     margin: .5rem 0;
     display: block;
+    font-size: .75rem;
 }
 
 @mixin field-input {

@@ -31,16 +31,16 @@ const Buttons = () => (
                 <p>Hollow</p>
 
                 <button children="Button" className="button hollow" />
-                <button children="Button" className="button hollow-primary" />
-                <button children="Button" className="button hollow-secondary" />
+                <button children="Button" className="button hollow primary" />
+                <button children="Button" className="button hollow secondary" />
             </div>
 
             <div>
                 <p>Hollow Disabled</p>
 
                 <button children="Button" disabled className="button hollow" />
-                <button children="Button" disabled className="button hollow-primary" />
-                <button children="Button" disabled className="button hollow-secondary" />
+                <button children="Button" disabled className="button hollow primary" />
+                <button children="Button" disabled className="button hollow secondary" />
             </div>
         </div>
 
@@ -57,8 +57,8 @@ const Buttons = () => (
                 <p>Hollow pills</p>
 
                 <button children="Button" className="button pill hollow" />
-                <button children="Button" className="button pill hollow-primary" />
-                <button children="Button" className="button pill hollow-secondary" />
+                <button children="Button" className="button pill hollow primary" />
+                <button children="Button" className="button pill hollow secondary" />
             </div>
         </div>
         

@@ -15,6 +15,7 @@ import history from './app/history';
 
 // Views
 import Root from './app/views/Root/Root.view';
+import Login from './app/views/Login/Login.view';
 import Landing from './app/views/Landing/Landing.view';
 
 
@@ -22,7 +23,8 @@ const bootstrap = () => {
     ReactDOM.render(
         <Root store={store} history={history}>
             <Switch>
-                <Route path="/" component={Landing} />
+                <Route path="/login" component={Login} />
+                <Route path="/landing" component={Landing} />
             </Switch>
         </Root>,
         document.getElementById('app'),

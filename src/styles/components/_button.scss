@@ -12,11 +12,11 @@
     &.hollow {
         @include button-hook('button.hollow');
 
-        &-primary {
+        &.primary {
             @include button-hook('button.hollow.primary');
         }
 
-        &-secondary {
+        &.secondary {
             @include button-hook('button.hollow.secondary');
         }
     }
