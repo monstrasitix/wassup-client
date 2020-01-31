@@ -10,6 +10,10 @@ const common = require('./webpack.common');
 const { root } = require('./webpack.utils');
 
 
+/**
+ * Development configuration utilizes ebpack-dev-server with hot reloading.
+ * Port is configurable via CLI. Asset source is also predefined inside this configuration.
+ */
 module.exports = merge(common, {
     mode: 'development',
     watch: true,
