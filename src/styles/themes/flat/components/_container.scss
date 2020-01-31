@@ -1,0 +1,20 @@
+@mixin container {
+    width: 90%;
+    margin: {
+        right: auto;
+        left: auto;
+    };
+}
+
+@mixin container-hook($name) {
+    @include variant-hook($name) {
+        @include variant('container.narrow') {
+            @include container;
+            max-width: 350px;
+        }
+
+        @include variant('container.fluid') {
+            @include container;
+        }
+    }
+}
