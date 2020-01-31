@@ -11,26 +11,21 @@ export interface IInputProps {
 };
 
 
-export const InputField: React.FC<IInputProps> = ({ type, label, name, ...rest }) => {
-    const [field, meta] = useField(name);
+export const InputField: React.FC<IInputProps> = ({ name, label, errors, ...rest }) =>  (
+    <div className={`field ${errors[name] && 'error'}`}>
+        {label && (
+            <label htmlFor={name} className="field-label">{label}</label>
+        )}
+        
+        <input id={name} name={name} {...rest} className="field-input" />
 
-    const hasError = (meta.touched && meta.error);
-
-
-    return (
-        <div className={`field ${hasError && 'error'}`}>
-            {label && (
-                <label htmlFor={field.name} className="field-label">{label}</label>
-            )}
-            
-            <input {...field} id={field.name} {...rest} className="field-input" />
-    
-            {hasError && (
-                <span className="field-message">{meta.error}</span>
-            )}
-        </div>
-    );
-};
+        {errors[name] && (
+            <span className="field-message">
+                {errors[name].message}
+            </span>
+        )}
+    </div>
+);
 
 
 InputField.propTypes = {

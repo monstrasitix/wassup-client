@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Formik, Form, FormikBag, FormikHelpers } from 'formik';
+import { useForm, Controller } from 'react-hook-form';
 
 
 // Components
@@ -13,8 +13,7 @@ export interface ILoginFormProps
 {
     username?: string;
     password?: string;
-    onSubmit?: any;
-    onReset?: any;
+    onSubmit: any;
 };
 
 
@@ -24,52 +23,63 @@ export const validationSchema = Yup.object().shape({
 });
 
 
-export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit, onReset }) => (
-    <Formik
-        onReset={onReset}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-        initialValues={{
+export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit }) => {
+    const { control, handleSubmit, errors } = useForm({
+        validationSchema,
+        defaultValues: {
             username,
             password,
-        }}
-    >
-        {({ isValid }) => (
-            <Form className="form">
-                <InputField
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                />
+        },
+    });
 
-                <InputField
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                />
+    return (
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <Controller
+                name="username"
+                control={control}
+                as={
+                    <InputField
+                        type="text"
+                        label="Username"
+                        name="username"
+                        placeholder="Username"
+                        errors={errors}
+                    />
+                }
+            />
 
-                <div className="field">
-                    <button disabled={!isValid} type="submit" className="button primary wide">Login</button>
-                </div>
-            </Form>
-        )}
-    </Formik>
-);
+            <Controller
+                name="password"
+                control={control}
+                as={
+                    <InputField
+                        type="password"
+                        name="password"
+                        label="Password"
+                        placeholder="Password"
+                        errors={errors}
+                    />
+                }
+            />
+            
+            <div className="field">
+                <button type="submit" className="button primary wide">Login</button>
+            </div>
+        </form>
+    );
+};
 
 
 Login.propTypes = {
     username: PropTypes.string,
     password: PropTypes.string,
-    onSubmit: PropTypes.func,
-    onReset: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 
 Login.defaultProps = {
     username: '',
     password: '',
-    onSubmit: () => { },
-    onReset: () => { },
 };
 
 
