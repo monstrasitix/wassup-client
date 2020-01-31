@@ -1,7 +1,6 @@
 // Core
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { useField } from 'formik';
 
 
 export interface IInputProps {
@@ -11,7 +10,7 @@ export interface IInputProps {
 };
 
 
-export const InputField: React.FC<IInputProps> = ({ name, label, errors, ...rest }) =>  (
+const InputField: React.FC<IInputProps> = ({ name, label, errors, ...rest }) =>  (
     <div className={`field ${errors[name] && 'error'}`}>
         {label && (
             <label htmlFor={name} className="field-label">{label}</label>

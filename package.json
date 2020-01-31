@@ -4,17 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "gen:story": "start-storybook",
     "bundle:development": "webpack-dev-server --env=development",
     "bundle:production": "webpack --env=production",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build",
-    "docz:serve": "docz build && docz serve",
     "start": "npm run bundle:development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@storybook/react": "^5.3.9",
     "@types/history": "^4.7.4",
     "@types/react": "^16.9.19",
     "@types/react-redux": "^7.1.7",
