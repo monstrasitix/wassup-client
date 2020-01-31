@@ -15,4 +15,4 @@ export const initialize: ActionCreator<Initialise> = () => ({
 });
 
 
-export type actions = Initialise;
+export type AppActionType = Initialise;

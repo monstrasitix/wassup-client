@@ -19,7 +19,10 @@ import Login from './app/views/Login/Login.view';
 import Landing from './app/views/Landing/Landing.view';
 
 
-const bootstrap = () => {
+/**
+ * Application's bootstrap.
+ */
+const bootstrap = (): void => {
     ReactDOM.render(
         <Root store={store} history={history}>
             <Switch>

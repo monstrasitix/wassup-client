@@ -16,9 +16,7 @@ const LoginContainer: React.FC<ILoginContainerProps> = () => {
 
 
     const handleSubmit = React.useCallback(
-        () => {
-            history.push('/landing')
-        },
+        () => history.push('/landing'),
         [],
     );
 

@@ -19,11 +19,15 @@
         "node_modules"
     ],
     "types": [
-        "typePatches"
+        "typePatches",
     ],
     "typedocOptions": {
         "mode": "modules",
         "out": "./generated/documentation",
         "excludeExternals": "true"
-    }
+    },
+    "typeRoots": [
+        "./node_modules/@types",
+        "./src/index.d.ts"
+    ]
 }

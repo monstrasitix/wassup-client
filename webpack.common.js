@@ -6,6 +6,19 @@ const HtmlWebpackPugin = require('html-webpack-plugin');
 const { root, rule } = require('./webpack.utils');
 
 
+/**
+ * @todo Add PostCSS
+ * @todo Add CSS Modules feature
+ * Common configuration applies to all environments as is essential for
+ * bundling the whole project. Consider that it includes application's root
+ * source and path for output source.
+ * 
+ * Configuration includes:
+ *  - TypeScipt transpilation
+ *  - SCSS transpilation
+ *  - Image resolvement
+ *  - Bundle injection inside the provided HTML template
+ */
 module.exports = {
     entry: {
         app: root('./src/index.tsx'),

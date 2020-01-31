@@ -1,0 +1,9 @@
+.container {
+    &.narrow {
+        @include container-hook('container.narrow');
+    }
+
+    &.fluid {
+        @include container-hook('container.fluid');
+    }
+}

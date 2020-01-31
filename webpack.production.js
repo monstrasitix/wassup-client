@@ -14,6 +14,10 @@ const common = require('./webpack.common');
 const { rule } = require('./webpack.utils');
 
 
+/**
+ * Production configuration extracts CSS from the bundled
+ * output and creates a separate CSS file.
+ */
 module.exports = merge(common, {
     mode: 'production',
     module: {
