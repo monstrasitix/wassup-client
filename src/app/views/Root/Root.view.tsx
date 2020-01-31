@@ -26,7 +26,7 @@ const Root: React.FC<IRootProps> = ({ store, history, children }) => (
 );
 
 
-Root.propTyps = {
+Root.propTypes = {
     store: PropTypes.any.isRequired,
     history: PropTypes.any.isRequired,
     children: PropTypes.any.isRequired,
