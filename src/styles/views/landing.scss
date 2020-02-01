@@ -1,0 +1,65 @@
+.landing {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    overflow: hidden;
+
+    &-info {
+        text-align: center;
+    }
+
+    &-column {
+        flex-grow: 1;
+        padding: 1.6em;
+
+        &.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #dedede;
+        }
+
+        &.main {
+            background-color: #ededed;
+            box-shadow: 0 0 1px silver;
+            overflow-y: scroll;
+        }
+    }
+}
+
+
+.landing-column {
+    $sidebar-width: 300px;
+    transition: transform .25s ease;
+    
+    width: $sidebar-width;
+
+    &.sidebar {
+        width: $sidebar-width;
+        transform: translateX(-$sidebar-width);
+
+        &.pushed {
+            transform: translateX(0);
+        }
+    }
+
+    &.main {
+        &.pushed {
+            transform: translateX($sidebar-width);
+        }
+    }
+}
+
+
+.grid {
+    display: grid;
+    grid-gap: 1.6rem;
+    grid-template-columns: repeat(3, 1fr);
+
+    &-box {
+        height: 200px;
+        background-color: #fff;
+        border-radius: .25rem;
+    }
+}

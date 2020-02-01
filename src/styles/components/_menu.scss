@@ -1,0 +1,23 @@
+.menu {
+    &-list {
+        list-style-type: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+
+    &-item {
+        display: inline-block;
+    }
+
+    &-link {
+        display: inline-block;
+        text-decoration: none;
+        padding: 1rem;
+        color: color('theme' 'primary');
+
+        i {
+            margin-right: 1em;
+        }
+    }
+}

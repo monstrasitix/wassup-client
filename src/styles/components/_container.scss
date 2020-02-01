@@ -6,4 +6,14 @@
     &.fluid {
         @include container-hook('container.fluid');
     }
+
+    &.page {
+        max-width: 1200px;
+        width: 90%;
+        $margin: auto;
+        margin: {
+            right: $margin;
+            left: $margin;
+        };
+    }
 }

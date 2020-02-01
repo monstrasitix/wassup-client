@@ -14,9 +14,9 @@ import history from './app/history';
 
 
 // Views
-import Root from './app/views/Root/Root.view';
-import Login from './app/views/Login/Login.view';
-import Landing from './app/views/Landing/Landing.view';
+import Root from './app/views/Root.view';
+import Login from './app/views/Login.view';
+import Landing from './app/views/Landing.view';
 
 
 /**
