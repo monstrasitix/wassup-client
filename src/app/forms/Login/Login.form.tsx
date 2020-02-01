@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, FormContext  } from 'react-hook-form';
 
 
 // Components
@@ -25,7 +25,7 @@ export const validationSchema = Yup.object().shape({
 
 
 export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit }) => {
-    const { control, handleSubmit, errors } = useForm({
+    const form = useForm({
         validationSchema,
         defaultValues: {
             username,
@@ -34,41 +34,27 @@ export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit 
     });
 
     return (
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-                name="username"
-                control={control}
-                as={
-                    <InputField
-                        type="text"
-                        label="Username"
-                        name="username"
-                        placeholder="Username"
-                        errors={errors}
-                    />
-                }
-            />
+        <FormContext {...form}>
+            <form className="form" onSubmit={form.handleSubmit(onSubmit)}>
+                <InputField
+                    type="text"
+                    label="Username"
+                    name="username"
+                    placeholder="Username"
+                />
 
-            <Controller
-                name="password"
-                control={control}
-                as={
-                    <InputField
-                        type="password"
-                        name="password"
-                        label="Password"
-                        placeholder="Password"
-                        errors={errors}
-                    />
-                }
-            />
-            
-            <div className="field">
-                <Button primary wide type="submit">
-                    Login
-                </Button>
-            </div>
-        </form>
+                <InputField
+                    type="password"
+                    name="password"
+                    label="Password"
+                    placeholder="Password"
+                />
+                
+                <div className="field">
+                    <Button primary wide type="submit">Login</Button>
+                </div>
+            </form>
+        </FormContext>
     );
 };
 

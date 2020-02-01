@@ -1,6 +1,7 @@
 // Core
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import { useFormContext } from 'react-hook-form';
 
 
 export interface IInputProps {
@@ -10,21 +11,27 @@ export interface IInputProps {
 };
 
 
-const InputField: React.FC<IInputProps> = ({ name, label, errors, ...rest }) =>  (
-    <div className={`field ${errors[name] && 'error'}`}>
-        {label && (
-            <label htmlFor={name} className="field-label">{label}</label>
-        )}
-        
-        <input id={name} name={name} {...rest} className="field-input" />
+const InputField: React.FC<IInputProps> = ({ name, label, ...rest }) =>  {
+    const { errors, register } = useFormContext();
 
-        {errors[name] && (
-            <span className="field-message">
-                {errors[name].message}
-            </span>
-        )}
-    </div>
-);
+    const error: any = errors[name];
+
+    return (
+        <div className={`field ${error && 'error'}`}>
+            {label && (
+                <label htmlFor={name} className="field-label">{label}</label>
+            )}
+            
+            <input ref={register} id={name} name={name} {...rest} className="field-input" />
+    
+            {error && (
+                <span className="field-message">
+                    {error.message}
+                </span>
+            )}
+        </div>
+    );
+};
 
 
 InputField.propTypes = {
