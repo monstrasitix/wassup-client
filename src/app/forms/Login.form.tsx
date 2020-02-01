@@ -51,10 +51,7 @@ export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit 
                     <FieldError />
                 </Field>
 
-
-                <div className="field">
-                    <Button primary wide type="submit">Login</Button>
-                </div>
+                <Button primary wide type="submit">Login</Button>
             </form>
         </FormContext>
     );
