@@ -1,0 +1,46 @@
+.landing {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+
+    &-column {
+        flex-grow: 1;
+
+        &.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #dedede;
+        }
+
+        &.main {
+            background-color: #ededed;
+            box-shadow: 0 0 1px silver;
+        }
+    }
+}
+
+
+.landing-column {
+    $sidebar-width: 300px;
+    transition: transform .25s ease;
+    
+    width: $sidebar-width;
+
+    &.sidebar {
+        width: $sidebar-width;
+        transform: translateX(-$sidebar-width);
+
+        &.pushed {
+            transform: translateX(0);
+        }
+    }
+
+    &.main {
+        &.pushed {
+            transform: translateX($sidebar-width);
+        }
+    }
+}

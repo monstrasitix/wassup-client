@@ -11,14 +11,14 @@ const stories =  storiesOf('Button', module);
 
 
 stories.add('Plain', () => (
-    <Button className="button" children="Button" />
+    <Button children="Button" />
 ));
 
 
 stories.add('Themed', () => (
     <>
-        <Button className="button" children="Button" />
-        <Button className="button primary" children="Button" />
-        <Button className="button secondary" children="Button" />
+        <Button children="Button" />
+        <Button primary children="Button" />
+        <Button secondary children="Button" />
     </>
 ));

@@ -8,7 +8,7 @@ export const getUserConfirmation = (message, callback) => (
 
 
 export default createMemoryHistory({
-    initialEntries: ['/login'],
+    initialEntries: ['/landing'],
     initialIndex: 0,
     keyLength: 6,
     getUserConfirmation,

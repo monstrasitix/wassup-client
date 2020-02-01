@@ -1,14 +1,5 @@
 @import '../core';
 
 
-.login {
-    @extend .container.narrow;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form {
-    width: 100%;
-}
+@import './login.scss';
+@import './landing.scss';
