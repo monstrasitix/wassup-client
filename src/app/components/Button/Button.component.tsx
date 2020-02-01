@@ -2,6 +2,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import c from 'classnames';
+import * as _ from 'lodash';
 
 
 export interface IButtonProps
@@ -21,50 +22,36 @@ export interface IButtonProps
 };
 
 
-const Button: React.FC<IButtonProps> = ({
-    type,
-    primary,
-    secondary,
-    hollow,
-    pill,
-    wide,
-    tiny,
-    small,
-    medium,
-    large,
-    massive,
-    ...rest
-}) => (
+export const classNames = [
+    'primary',
+    'secondary',
+    'hollow',
+    'pill',
+    'wide',
+    'tiny',
+    'small',
+    'medium',
+    'large',
+    'massive',
+];
+
+
+export const setDefault = (types, value) => types.reduce((acc, name) => ({
+    ...acc, [name]: value,
+}), {});
+
+
+const Button: React.FC<IButtonProps> = ({ type, ...rest }) => (
     <button
-        {...rest}
+        {..._.omit(rest, classNames)}
         type={type}
-        className={c('button', {
-            primary,
-            secondary,
-            hollow,
-            pill,
-            wide,
-            tiny,
-            small,
-            medium,
-            large,
-            massive,
-        })}
+        className={c('button', _.pick(rest, classNames))}
     />
 );
 
 
 Button.propTypes = {
-    primary: PropTypes.bool,
-    secondary: PropTypes.bool,
-    hollow: PropTypes.bool,
-    pill: PropTypes.bool,
-    wide: PropTypes.bool,
-    tiny: PropTypes.bool,
-    small: PropTypes.bool,
-    medium: PropTypes.bool,
-    large: PropTypes.bool,
-    massive: PropTypes.bool,
+    ...setDefault(classNames, PropTypes.bool),
     type: PropTypes.oneOf([
         'button',
         'submit',
@@ -75,16 +62,7 @@ Button.propTypes = {
 
 
 Button.defaultProps = {
-    primary: false,
-    secondary: false,
-    hollow: false,
-    pill: false,
-    wide: false,
-    tiny: false,
-    small: false,
-    medium: false,
-    large: false,
-    massive: false,
+    ...setDefault(classNames, false),
     type: 'button',
 };
 
