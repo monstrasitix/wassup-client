@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom';
 
 
 // Containers
-import AppContainer from '../../containers/App/App.container';
+import AppContainer from '../containers/App.container';
 
 
 export interface IRootProps

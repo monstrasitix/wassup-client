@@ -3,7 +3,7 @@ import * as React from 'react';
 
 
 // Containers
-import LoginContainer from '../../containers/Login/Login.container';
+import LoginContainer from '../containers/Login.container';
 
 export interface ILoginProps {};
 

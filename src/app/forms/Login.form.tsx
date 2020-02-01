@@ -6,8 +6,8 @@ import { useForm, FormContext  } from 'react-hook-form';
 
 
 // Components
-import Button from '../../components/Button/Button.component';
-import InputField from '../../components/InputField/InputField.component';
+import Button from '../components/Button/Button.component';
+import InputField from '../components/InputField/InputField.component';
 
 
 export interface ILoginFormProps

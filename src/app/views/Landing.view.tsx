@@ -4,7 +4,7 @@ import c from 'classnames';
 
 
 // Components
-import Button from '../../components/Button/Button.component';
+import Button from '../components/Button/Button.component';
 
 export interface ILandingProps {};
 

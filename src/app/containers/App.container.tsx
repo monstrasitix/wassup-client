@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 
 // Actions
-import * as AppAction from '../../actions/app.action';
+import * as AppAction from '../actions/app.action';
 
 
 export interface IAppProps {

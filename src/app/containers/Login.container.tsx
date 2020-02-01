@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 // Forms
-import LoginForm from '../../forms/Login/Login.form';
+import LoginForm from '../forms/Login.form';
 
 
 export interface ILoginContainerProps {};
