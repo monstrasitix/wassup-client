@@ -6,6 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 
 // Components
+import Button from '../../components/Button/Button.component';
 import InputField from '../../components/InputField/InputField.component';
 
 
@@ -63,7 +64,9 @@ export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit 
             />
             
             <div className="field">
-                <button type="submit" className="button primary wide">Login</button>
+                <Button primary wide type="submit">
+                    Login
+                </Button>
             </div>
         </form>
     );

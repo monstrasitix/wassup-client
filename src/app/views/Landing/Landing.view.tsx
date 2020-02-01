@@ -20,7 +20,27 @@ const Landing: React.FC<ILandingProps> = () => {
     return (
         <div className="landing">
             <div className={c('landing-column sidebar', { pushed: toggled })}>
-                One
+                <div className="landing-info">
+                    <p><strong>John Doe</strong></p>
+                    <p>Order 01/02/2020</p>
+                </div>
+
+                <Button primary wide>View Order</Button>
+
+                <br/>
+                <br/>
+
+                <nav className="menu">
+                    <ul className="menu-list">
+                        {new Array(5).fill(0).map((_, index) => (
+                            <li className="menu-item" key={index}>
+                                <a href="#" className="menu-link">
+                                    <i className="fa fa-leaf" />{' Some Link'}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </div>
 
             <div className={c('landing-column main', { pushed: toggled })}>
@@ -29,6 +49,16 @@ const Landing: React.FC<ILandingProps> = () => {
                         <i className="fas fa-bars" />
                     </Button>
                 </nav>
+
+                <br/>
+
+                <main className="grid container page">
+                    {new Array(50).fill(0).map((_, index) => (
+                        <div key={index} className="grid-column">
+                            <div className="grid-box" />
+                        </div>
+                    ))}
+                </main>
             </div>
         </div>
     );
