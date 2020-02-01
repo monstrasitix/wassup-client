@@ -1,8 +1,8 @@
 // Core
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import c from 'classnames';
 import * as _ from 'lodash';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 
 
 export interface IButtonProps
