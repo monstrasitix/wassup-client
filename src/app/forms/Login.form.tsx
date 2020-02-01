@@ -7,7 +7,10 @@ import { useForm, FormContext  } from 'react-hook-form';
 
 // Components
 import Button from '../components/Button/Button.component';
-import InputField from '../components/InputField/InputField.component';
+import Field from '../components/Field/Field.component';
+import FieldInput from '../components/FieldInput/FieldInput.component';
+import FieldLabel from '../components/FieldLabel/FieldLabel.component';
+import FieldError from '../components/FieldError/FieldError.component';
 
 
 export interface ILoginFormProps
@@ -36,20 +39,19 @@ export const Login: React.FC<ILoginFormProps> = ({ username, password, onSubmit 
     return (
         <FormContext {...form}>
             <form className="form" onSubmit={form.handleSubmit(onSubmit)}>
-                <InputField
-                    type="text"
-                    label="Username"
-                    name="username"
-                    placeholder="Username"
-                />
+                <Field name="username">
+                    <FieldLabel>Username</FieldLabel>
+                    <FieldInput placeholder="Username" />
+                    <FieldError />
+                </Field>
 
-                <InputField
-                    type="password"
-                    name="password"
-                    label="Password"
-                    placeholder="Password"
-                />
-                
+                <Field name="password">
+                    <FieldLabel>Password</FieldLabel>
+                    <FieldInput type="password" placeholder="Password" />
+                    <FieldError />
+                </Field>
+
+
                 <div className="field">
                     <Button primary wide type="submit">Login</Button>
                 </div>

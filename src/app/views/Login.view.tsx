@@ -9,10 +9,8 @@ export interface ILoginProps {};
 
 
 export const Login: React.FC<ILoginProps> = () => (
-    <div>
-        <div className="login">
-            <LoginContainer />
-        </div>
+    <div className="login">
+        <LoginContainer />
     </div>
 );
 

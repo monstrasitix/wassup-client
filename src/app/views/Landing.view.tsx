@@ -1,10 +1,16 @@
 // Core
-import * as React from 'react';
 import c from 'classnames';
+import * as React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 
 // Components
 import Button from '../components/Button/Button.component';
+
+
+// Views
+import Dashboard from './Dashboard.view';
+
 
 export interface ILandingProps {};
 
@@ -13,7 +19,7 @@ const Landing: React.FC<ILandingProps> = () => {
     const [toggled, setToggle] = React.useState(true);
 
     const handleToggle = React.useCallback(
-        () => setToggle(old => !old),
+        () => setToggle(!toggled),
         [toggled],
     );
     
@@ -27,7 +33,6 @@ const Landing: React.FC<ILandingProps> = () => {
 
                 <Button primary wide>View Order</Button>
 
-                <br/>
                 <br/>
 
                 <nav className="menu">
@@ -43,7 +48,7 @@ const Landing: React.FC<ILandingProps> = () => {
                 </nav>
             </div>
 
-            <div className={c('landing-column main', { pushed: toggled })}>
+            <main className={c('landing-column main', { pushed: toggled })}>
                 <nav>
                     <Button primary onClick={handleToggle}>
                         <i className="fas fa-bars" />
@@ -52,14 +57,10 @@ const Landing: React.FC<ILandingProps> = () => {
 
                 <br/>
 
-                <main className="grid container page">
-                    {new Array(50).fill(0).map((_, index) => (
-                        <div key={index} className="grid-column">
-                            <div className="grid-box" />
-                        </div>
-                    ))}
-                </main>
-            </div>
+                <Switch>
+                    <Route component={Dashboard} />
+                </Switch>
+            </main>
         </div>
     );
 };
